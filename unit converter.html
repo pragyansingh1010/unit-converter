@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Unit Converter</title>
+</head>
+<body>
+
+    <h2>Unit Converter</h2>
+
+    <input type="number" id="value" placeholder="Enter value">
+
+    <select id="conversion">
+        <option value="km-mile">Kilometers → Miles</option>
+        <option value="mile-km">Miles → Kilometers</option>
+        <option value="meter-feet">Meters → Feet</option>
+        <option value="feet-meter">Feet → Meters</option>
+        <option value="kg-pound">Kilograms → Pounds</option>
+        <option value="pound-kg">Pounds → Kilograms</option>
+        <option value="celsius-fahrenheit">Celsius → Fahrenheit</option>
+        <option value="fahrenheit-celsius">Fahrenheit → Celsius</option>
+    </select>
+
+    <button onclick="convert()">Convert</button>
+
+    <h3 id="result"></h3>
+
+    <script>
+        function convert() {
+            let value = Number(document.getElementById("value").value);
+            let conversion = document.getElementById("conversion").value;
+            let result;
+
+            if (conversion == "km-mile") {
+                result = value * 0.621371;
+                document.getElementById("result").innerHTML =
+                    value + " km = " + result.toFixed(2) + " miles";
+            }
+            else if (conversion == "mile-km") {
+                result = value * 1.60934;
+                document.getElementById("result").innerHTML =
+                    value + " miles = " + result.toFixed(2) + " km";
+            }
+            else if (conversion == "meter-feet") {
+                result = value * 3.28084;
+                document.getElementById("result").innerHTML =
+                    value + " meters = " + result.toFixed(2) + " feet";
+            }
+            else if (conversion == "feet-meter") {
+                result = value * 0.3048;
+                document.getElementById("result").innerHTML =
+                    value + " feet = " + result.toFixed(2) + " meters";
+            }
+            else if (conversion == "kg-pound") {
+                result = value * 2.20462;
+                document.getElementById("result").innerHTML =
+                    value + " kg = " + result.toFixed(2) + " pounds";
+            }
+            else if (conversion == "pound-kg") {
+                result = value * 0.453592;
+                document.getElementById("result").innerHTML =
+                    value + " pounds = " + result.toFixed(2) + " kg";
+            }
+            else if (conversion == "celsius-fahrenheit") {
+                result = (value * 9 / 5) + 32;
+                document.getElementById("result").innerHTML =
+                    value + " °C = " + result.toFixed(2) + " °F";
+            }
+            else if (conversion == "fahrenheit-celsius") {
+                result = (value - 32) * 5 / 9;
+                document.getElementById("result").innerHTML =
+                    value + " °F = " + result.toFixed(2) + " °C";
+            }
+        }
+    </script>
+
+</body>
+</html>
